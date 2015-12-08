@@ -5,6 +5,7 @@ lastname = []
 
 for fn in full_names:
     f=fn.split(' ')
+    print fn
     fname = f[0]
     #print fname
     firstname.append(fname)
