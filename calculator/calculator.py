@@ -1,6 +1,6 @@
 def add (num1, num2):
-        if not isinstance(num1, int): #checking #value datatype
-                return None
+##        if not isinstance(num1, int): #checking #value datatype
+##                return None
         return num1 + num2
 
 def subtract (num1, num2):
@@ -26,17 +26,27 @@ def input_operator ():
 
 def operator (ope, num1 , num2):
       
-        if ope == '+':
-            return add(num1,num2)
-        elif ope == '-':
-            return subtract(num1,num2)
-        elif ope == '*':
-            return multiply(num1,num2)
-        elif ope == '/':
-            return divide(num1,num2)
-        else:
-            print ("Invalid input")
+##        if ope == '+':
+##            return add(num1,num2)
+##        elif ope == '-':
+##            return subtract(num1,num2)
+##        elif ope == '*':
+##            return multiply(num1,num2)
+##        elif ope == '/':
+##            return divide(num1,num2)
+##        else:
+##            #print ("Invalid input")
+##            return None
+        
+        functions = {'+':add,
+                  '-':subtract,
+                  '*':multiply,
+                  '/':divide }
+        
+        funcs = functions.get(ope, None)
 
+        if funcs:
+                return funcs(num1, num2)
         return None
             
 def output(ope, num1, num2, ans):
