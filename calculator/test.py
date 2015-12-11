@@ -31,7 +31,9 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.operator('*', 7,-3),-21)
         self.assertEqual(calculator.operator(1, 'AB',3), None)
         
-
+    def test_output(self):
+        self.assertEqual(calculator.output('+', 13,11,24), "13 + 11 = 24")
+        
         
 
 
