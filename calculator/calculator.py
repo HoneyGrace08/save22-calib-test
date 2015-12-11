@@ -14,14 +14,14 @@ def divide (num1, num2):
         num2 = float(num2)
         return num1 / num2
 
-def inputOne():
-        return int(raw_input ("First number: "))
+def inputOne(input = raw_input):
+        return int(input ("First number: "))
 
-def inputTwo ():
-        return int(raw_input ("Second number: "))
+def inputTwo (input = raw_input):
+        return int(input ("Second number: "))
 
-def input_operator ():
-        return raw_input ("Operator: ")
+def input_operator (input=raw_input):
+        return input ("Operator: ")
     
 
 def operator (ope, num1 , num2):
@@ -37,7 +37,6 @@ def operator (ope, num1 , num2):
 ##        else:
 ##            #print ("Invalid input")
 ##            return None
-        
         functions = {'+':add,
                   '-':subtract,
                   '*':multiply,
