@@ -1,4 +1,6 @@
 def add (num1, num2):
+        if not isinstance(num1, int): #checking #value datatype
+                return None
         return num1 + num2
 
 def subtract (num1, num2):
