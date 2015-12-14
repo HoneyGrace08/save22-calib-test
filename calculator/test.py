@@ -45,13 +45,18 @@ class TestCalculator(unittest.TestCase):
     def test_inputTwo(self):
          self.assertEqual(calculator.inputTwo(self.mock_input),1)
         
-
     def mock_input(self,prompt):
         return 1
 
-    
     def mock_ope(self,prompt):
         return '+'
+
+    def mock_input_zero(self,prompt):
+        return 0
+
+    def mock_input_string(self,prompt):
+        return 'A'
+
         
     def test_success(self):
         num1 = calculator.inputOne(self.mock_input)
@@ -59,8 +64,51 @@ class TestCalculator(unittest.TestCase):
         num2 = calculator.inputTwo(self.mock_input)
         ans = calculator.operator(ope, num1, num2)
         final = calculator.output(ope, num1, num2, ans)
-
         self.assertEqual(final, "1 + 1 = 2")
+
+
+    def test_DividedByZero (self):
+       
+        input1 =calculator.inputOne(self.mock_input)
+        input2 = calculator.inputTwo(self.mock_input_zero)
+        
+        try:
+               self.assertEqual(calculator.divide(input1,input2),None)
+               #self.assertEqual((input1 / input2), None )
+        except ZeroDivisionError:
+                pass
+                #print 'Cant divide by zero'
+        else:
+                self.fail('Did not see ZeroDivisionError')
+        
+    
+    def test_StringInputs (self):
+         try:
+               self.assertEqual(calculator.inputOne(self.mock_input_string),1)
+               self.assertEqual(calculator.input_operator(self.mock_ope),'+')
+               self.assertEqual(calculator.inputTwo(self.mock_input_string), 1) 
+                
+         except ValueError:
+                pass
+                #print "Invalid Input"
+         else:
+                self.fail('Did not see StringInputs')
+
+
+    def test_IntAndString(self):
+        
+         try:
+               self.assertEqual(calculator.inputOne(self.mock_input_string),1)
+               self.assertEqual(calculator.input_operator(self.mock_ope),'+')
+               self.assertEqual(calculator.inputTwo(self.mock_input), 1) 
+                
+         except ValueError:
+                pass
+                #print "Invalid Input"
+         else:
+                self.fail('Did not see Integer and Strings')
+   
+
 
 if __name__ == '__main__':
     unittest.main()

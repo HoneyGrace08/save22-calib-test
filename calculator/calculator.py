@@ -52,14 +52,45 @@ def output(ope, num1, num2, ans):
     
         return '{} {} {} = {}'.format(num1, ope, num2, ans)
 
-    
+
 def main():
         print "---CALCULATOR----"
-        num1 = inputOne()
-        ope = input_operator()
-        num2 = inputTwo()
-        ans = operator(ope, num1, num2)
-        print output(ope, num1, num2, ans)
+##        input1 = inputOne()
+##        ope = input_operator()
+##        input2 = inputTwo()
+##        ans = operator(ope, input1, input2)
+##        print output(ope, input1, input2, ans)
 
+        while True:
+                try:
+                    input1 = int(inputOne())
+                    break
+                except ValueError:
+                    pass                        
+                    #print "Invalid Input"
+
+        while True:
+                try:
+                    ope = input_operator()
+                    break
+                except ValueError:
+                    pass  
+                    #print "Invalid Input"
+
+        while True:
+                try:
+                    input2 = int(inputTwo())
+                    break
+                except ValueError:
+                     pass
+                    #print "Invalid Input"
+
+        try:
+                ans = operator(ope, input1, input2)
+                print output(ope, input1, input2, ans)
+        except ZeroDivisionError:
+                print 'Cant divide by zero'
+
+        
 if __name__ == '__main__':
   main()
